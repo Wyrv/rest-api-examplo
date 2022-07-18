@@ -1,0 +1,1506 @@
+{
+	"info": {
+		"_postman_id": "c6cd138f-a2f6-4850-9f69-7957b9f12dfb",
+		"name": "api-rest (example)",
+		"description": "Exemplo de API REST simples.  \n  \nÉ possível:  \n\\-Criar usuários (create)  \n\\-Login do usuário pare receber o token de acesso. (login)  \n\\-Ler do banco os dados de um usuário específico (read_single)  \n\\-Ler do banco a lista de todos os usuários cadastrados (read)  \n\\-Realizar alterações nos dados dos usuários cadastrados (update)  \n\\-Apagar usuário registrado (delete)  \n  \n\\---\n\nStartFragment\n\nSimple REST API example.  \n  \nIt's possible to:  \n\\-Create users (create)  \n\\-User login to receive the access token. (Log in)  \n\\-Read the data of a specific user from the database (read_single)  \n\\-Read the list of all registered users from the database (read)  \n\\-Make changes in registered users (update)  \n\\-Delete registered users (delete)\n\nEndFragment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20471297"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"Stephen Hawkingn\",\r\n    \"email\" : \"mvp@test.com\",\r\n    \"secret\" : \"passwd123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/auth/api/users/create.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"auth",
+						"api",
+						"users",
+						"create.php"
+					]
+				},
+				"description": "Criação de usuário.\n\nUser registration."
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Dan Harmon\",\r\n    \"email\" : \"szechuan@test.com\",\r\n    \"secret\" : \"passwd123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/auth/api/users/create.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"api",
+								"users",
+								"create.php"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 00:42:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Success, user created.\"\n}"
+				},
+				{
+					"name": "Fail 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Dan Harmon\",\r\n    \"email\" : \"szechuan@test.com\",\r\n    \"secret\" : \"passwd123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/auth/api/users/create.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"api",
+								"users",
+								"create.php"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 00:42:15 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Fail, email in use.\"\n}"
+				},
+				{
+					"name": "Fail 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Dan Harmon\",\r\n    \"email\" : \"szechuan@test.com\",\r\n    \"secret\" : \"passwd123\",\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/auth/api/users/create.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"api",
+								"users",
+								"create.php"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 00:44:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Fail, incomplete dataset.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"mvp@test.com\",\r\n    \"secret\" : \"passwd123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/auth/login.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"auth",
+						"login.php"
+					]
+				},
+				"description": "Login do usuário. (Para pegar o token de acesso)\n\nUser's login. (Get the access token)"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"szechuan@test.com\",\r\n    \"secret\" : \"passwd123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/auth/login.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"login.php"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 00:42:49 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "114"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"62cb71d991c343.73925452\",\n    \"id\": \"60\",\n    \"email\": \"szechuan@test.com\",\n    \"username\": \"Dan Harmon\",\n    \"drinkcount\": \"0\"\n}"
+				},
+				{
+					"name": "Fail 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"szechuan@test.com1\",\r\n    \"secret\" : \"passwd123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/auth/login.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"login.php"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 00:43:17 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Fail, invalid email.\"\n}"
+				},
+				{
+					"name": "Fail 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"szechuan@test.com\",\r\n    \"secret\" : \"passwd1231\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/auth/login.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"login.php"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 00:43:34 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "40"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Fail, invalid credentials.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "read_single",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Token",
+						"value": "62d5c9ce7e5486.64721831",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/auth/api/users/read_single.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"auth",
+						"api",
+						"users",
+						"read_single.php"
+					]
+				},
+				"description": "Ler do banco os dados do usuário correspondente ao token de acesso utilizado.\n\nRead from the database the user data corresponding to the access token."
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Token",
+								"value": "62cb71d991c343.73925452",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/auth/api/users/read_single.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"api",
+								"users",
+								"read_single.php"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 00:44:08 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/api/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "80"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"60\",\n    \"username\": \"Dan Harmon\",\n    \"email\": \"szechuan@test.com\",\n    \"drinkcount\": \"0\"\n}"
+				},
+				{
+					"name": "Fail",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Token",
+								"value": "62cb71d991c343.739254521",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/auth/api/users/read_single.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"api",
+								"users",
+								"read_single.php"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 00:44:36 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/api/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Fail, invalid user or token.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "read",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Token",
+						"value": "62d5c9ce7e5486.64721831",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/auth/api/users/read.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"auth",
+						"api",
+						"users",
+						"read.php"
+					]
+				},
+				"description": "Retorna lista de usuários cadastrados.\n\nGet list of registered users."
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Token",
+								"value": "62cb71d991c343.73925452",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost/auth/api/users/read.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"api",
+								"users",
+								"read.php"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 00:45:40 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/api/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "906"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"records\": [\n        {\n            \"id\": \"60\",\n            \"username\": \"Dan Harmon\",\n            \"email\": \"szechuan@test.com\",\n            \"drinkcount\": \"0\"\n        },\n        {\n            \"id\": \"58\",\n            \"username\": \"Robert Hooke\",\n            \"email\": \"faker@test.com\",\n            \"drinkcount\": \"17\"\n        },\n        {\n            \"id\": \"57\",\n            \"username\": \"Kip Thorne\",\n            \"email\": \"interstellar@test.com\",\n            \"drinkcount\": \"13\"\n        },\n        {\n            \"id\": \"56\",\n            \"username\": \"Carl Sagan\",\n            \"email\": \"best@test.com\",\n            \"drinkcount\": \"25\"\n        },\n        {\n            \"id\": \"32\",\n            \"username\": \"Blaise Pascal\",\n            \"email\": \"math@test.com\",\n            \"drinkcount\": \"13\"\n        },\n        {\n            \"id\": \"31\",\n            \"username\": \"Isaac Newton\",\n            \"email\": \"apple@test.com\",\n            \"drinkcount\": \"12\"\n        },\n        {\n            \"id\": \"29\",\n            \"username\": \"Albert Einstein\",\n            \"email\": \"emc2@test.com\",\n            \"drinkcount\": \"16\"\n        },\n        {\n            \"id\": \"28\",\n            \"username\": \"Stephen Hawking\",\n            \"email\": \"mvp@test.com\",\n            \"drinkcount\": \"21\"\n        },\n        {\n            \"id\": \"27\",\n            \"username\": \"Sam Harris\",\n            \"email\": \"free@test.com\",\n            \"drinkcount\": \"20\"\n        },\n        {\n            \"id\": \"26\",\n            \"username\": \"Neil Tyson\",\n            \"email\": \"badass@test.com\",\n            \"drinkcount\": \"11\"\n        },\n        {\n            \"id\": \"25\",\n            \"username\": \"Abraham Lincoln\",\n            \"email\": \"usa@test.com\",\n            \"drinkcount\": \"14\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Fail",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Token",
+								"value": "62cb71d991c343.73925452",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost/auth/api/users/read.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"api",
+								"users",
+								"read.php"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 00:45:53 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/api/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Fail, invalid token.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Token",
+						"value": "62d5c9ce7e5486.64721831",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"Robert Hooke\",\r\n    \"email\" : \"fake@test.com\",\r\n    \"secret\" : \"passwd123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/auth/api/users/update.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"auth",
+						"api",
+						"users",
+						"update.php"
+					]
+				},
+				"description": "Altera dados de usuário cadastrado no banco, correspondente ao token fornecido.\n\nChanges user data in the database, corresponding to the token provided."
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Token",
+								"value": "62cb71d991c343.73925452",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Dan Harmon\",\r\n    \"email\" : \"Szechuansauce@test.com\",\r\n    \"secret\" : \"passwd123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/auth/api/users/update.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"api",
+								"users",
+								"update.php"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 00:47:42 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/api/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User was updated.\"\n}"
+				},
+				{
+					"name": "Fail 1",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Token",
+								"value": "62cb71d991c343.73925452",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Dan Harmon\",\r\n    \"email\" : \"szechuan@test.com\",\r\n    \"secret\" : \"passwd123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/auth/api/users/update.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"api",
+								"users",
+								"update.php"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 00:48:07 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/api/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "41"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=99"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Fail, email already in use.\"\n}"
+				},
+				{
+					"name": "Fail 2",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Token",
+								"value": "62cb71d991c343.73925452",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Dan Harmon\",\r\n    \"email\" : \"szechuan@test.com\",\r\n    \"secret\" : \"passwd123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/auth/api/users/update.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"api",
+								"users",
+								"update.php"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 01:02:19 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/api/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Fail, missing authorization token.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Token",
+						"value": "62d5c98a5ce6a7.62454443",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/auth/api/users/delete.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"auth",
+						"api",
+						"users",
+						"delete.php"
+					]
+				},
+				"description": "Apaga registro de usuário no banco, correspondente ao token de acesso fornecido.  \n  \nErases user registration in the bank, corresponding to the access token provided."
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Token",
+								"value": "62cb76d27ed3c2.73719893",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/auth/api/users/delete.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"api",
+								"users",
+								"delete.php"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 01:06:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/api/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"user was deleted.\"\n}"
+				},
+				{
+					"name": "Fail",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Token",
+								"value": "62cb76d27ed3c2.737198931",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/auth/api/users/delete.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"auth",
+								"api",
+								"users",
+								"delete.php"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Jul 2022 01:05:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.51 (Win64) PHP/7.4.26"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost/auth/api/"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Fail, wrong or missing authorization token.\"\n}"
+				}
+			]
+		}
+	]
+}
