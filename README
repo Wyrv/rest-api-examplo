@@ -1,0 +1,47 @@
+[Português]
+A um tempo atrás decidir criar uma API pra praticar os requisitos do padrão REST.
+O código aqui é um exemplo bem simples de cadastro de usuários, onde é possível:
+-Criar novo usuário.
+-Realizar o login do usuário (paba obter um token de acesso).
+-Realizar alterações no usuário cadastrado.
+-Consultar um usuário específico.
+-Consultar a lista de usuários cadastrados.
+-Apagar um determido cadastro.
+
+Consultei uma grande quantidade materiais online, onde a maior parte foi inspirada da ajuda que tive do site: https://codeofaninja.com
+O material lá é incrivelmente didático.
+-------------
+
+[English]
+A while back, I decided to make an API to practice the REST standards.
+The code here is a very simple example of user registration, where it is possible to:
+-Create new users.
+-User's login (get a token)
+-Update a user.
+-Get a specific user.
+-Get a list of registered users.
+-Delete a user.
+
+I've used a lot of online info, most of which was inspired by the help I got from the website: https://codeofaninja.com
+The material there is incredibly didactic.
+
+OBS.: The majority of the comments are in PT-BR, but I have the habit of coding in English. So it shouldn't be an issue if you do not speak Portuguese.
+-------------
+
+
+-CRIACAO DO BANCO / CREATING THE DATABASE - (mariadb)
+CREATE TABLE `users` (
+	`id` BIGINT NOT NULL auto_increment primary KEY,
+	`token` VARCHAR(30) NULL DEFAULT NULL,
+	`username` VARCHAR(20) NULL DEFAULT NULL,
+	`email` VARCHAR(50) NULL DEFAULT NULL,
+	`secret` VARCHAR(50) NULL DEFAULT NULL
+)
+COLLATE='utf8mb4_general_ci'
+;
+
+Não deveria ser relevante, mas eu utilizei o dbeaver pra conexão com o banco, e o wampserver p/ gerir o host.
+Testei a API sempre com o postman, instalado na máquina.
+
+Inclusive faz parte do conteúdo a coleção do postman que inclui a documentação.
+
